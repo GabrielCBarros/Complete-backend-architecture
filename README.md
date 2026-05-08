@@ -37,7 +37,7 @@ git clone https://github.com/GabrielCBarros/Complete-backend-architecture.git
 
 Entre na pasta do projeto:
 
-cd SEU-REPOSITORIO
+cd [SEU-REPOSITORIO](https://github.com/GabrielCBarros/Complete-backend-architecture)
 
 Instale as dependências:
 
