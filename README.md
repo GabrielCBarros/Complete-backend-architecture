@@ -1,19 +1,117 @@
 
-# Função usando promise e async
-# await: Funciona como um promise, tudo que ta ali dentro nao tem nada haver com java script é algo que está no banco de dados, então precisa de uma promise para dizer, java script algo vai chegar aqui
-# async: Usando o promise, ela se torna uma função assincrona, então consequentemente tem que usar o async antes da função
-# create: Função do post é criar, esse create serve para isso, uma função para criar dados do usuario
-# updated: Serve para colocar na parte de atualização, no caso PUT
-# findmany(): Lista tudo que ja foi criado, todos os id, com suas devidas iformações
+# API CRUD com Autenticação JWT
 
- app.post("/usuarios", async (req,res) => {
-   await prisma.user.create({
-        data:{
-            email: req.body.email,
-            name: req.body.name,
-            age: req.body.age
-        }
-        
-    })
-    res.status(201).json(req.body)
-})
+API REST desenvolvida em Node.js utilizando Express, Prisma e autenticação JWT.
+
+---
+
+## Sobre o projeto
+
+Esta API permite:
+
+* Cadastro de usuários
+* Login com geração de token JWT
+* Proteção de rotas privadas
+* CRUD de atendimentos
+
+Projeto criado com foco em estudos de backend, autenticação e boas práticas de API.
+
+---
+
+## Tecnologias utilizadas
+
+* Node.js
+* Express
+* Prisma ORM
+* JSON Web Token (JWT)
+* Dotenv
+* Banco de dados relacional
+
+---
+
+## Instalação
+
+Clone o repositório:
+
+git clone https://github.com/GabrielCBarros/Complete-backend-architecture.git
+
+Entre na pasta do projeto:
+
+cd SEU-REPOSITORIO
+
+Instale as dependências:
+
+npm install
+
+---
+
+## Variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+DATABASE_URL=
+JWT_SECRET=
+PORT=3000
+
+---
+
+## Executando o projeto
+
+npm run dev
+
+Servidor disponível em:
+
+http://localhost:3000
+
+---
+
+## Autenticação
+
+Após realizar o login, será retornado um token JWT.
+
+Envie o token nas rotas protegidas utilizando o header:
+
+Authorization: Bearer SEU_TOKEN
+
+---
+
+## Rotas da API
+
+### Autenticação
+
+POST /register
+Cria um novo usuário
+
+POST /login
+Realiza login e retorna token JWT
+
+### Atendimentos
+
+GET /atendimentos
+Lista atendimentos
+
+POST /atendimentos
+Cria atendimento
+
+PUT /atendimentos/:id
+Atualiza atendimento
+
+DELETE /atendimentos/:id
+Remove atendimento
+
+---
+
+## Estrutura do projeto
+
+controller/
+middlewares/
+routes/
+prisma/
+server.js
+
+---
+
+## Autor
+
+Gabriel Barros
+
