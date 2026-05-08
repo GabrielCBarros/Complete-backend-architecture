@@ -25,7 +25,7 @@ Projeto criado com foco em estudos de backend, autenticação e boas práticas d
 * Prisma ORM
 * JSON Web Token (JWT)
 * Dotenv
-* Banco de dados relacional
+* Banco de dados MongoDB
 
 ---
 
