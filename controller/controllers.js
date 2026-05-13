@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 
 export async function createUserController(req,res){
-    console.log(req.headers)
+    
     const createUser = await prisma.user.create({
         
         data: req.body

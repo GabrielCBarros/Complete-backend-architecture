@@ -9,7 +9,7 @@ import {
     deleteUserController
 } from "../controller/controllers.js"
 
-router.post("/usuarios", createUserController)
+router.post("/usuarios",authMiddleware, createUserController)
 router.get("/usuarios",authMiddleware, findyManyUserController)
 router.put("/usuarios/:id",authMiddleware, updatedUserController)
 router.delete("/usuarios/:id",authMiddleware, deleteUserController)

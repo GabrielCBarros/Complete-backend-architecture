@@ -1,11 +1,15 @@
 import { PrismaClient } from "@prisma/client"
+import {schemaLogin, schemaRegister} from "../schemas/userSchema.js"
+
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
 const prisma = new PrismaClient()
 
+//Essa funçao cuida de toda parte dos registros dos usuarios
+
 export async function register(req,res){
-    const {name,age,email,password} = req.body
+    const { name, age, email, password } = schemaRegister.parse(req.body)// aqui estou usando o zod para estabelecer condição de como tem que ser
     
     const hashedPassword = await bcrypt.hash(password,10) 
 
@@ -21,8 +25,10 @@ export async function register(req,res){
     res.status(201).json(user)
 }
 
+//Essa função cuida da parte de login, aqui que faz o login e recebe seu token
+
 export async function login(req,res){
-    const {email,password} = req.body
+    const {email,password} = schemaLogin.parse(req.body)
 
     const user =  await prisma.user.findUnique({
         where:{
