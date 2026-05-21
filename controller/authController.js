@@ -19,6 +19,7 @@ export async function register(req,res){
             age,
             email,
             password: hashedPassword
+            
         }
     })
 
